@@ -17,6 +17,10 @@ namespace AssignmentTransaction
 
         }
         
+        /// <summary>
+        /// Webmethod to return listof all transaction data
+        /// </summary>
+        /// <returns></returns>
         [WebMethod]
         public static List<Dictionary<string, object>> GetAllTransaction()
         {

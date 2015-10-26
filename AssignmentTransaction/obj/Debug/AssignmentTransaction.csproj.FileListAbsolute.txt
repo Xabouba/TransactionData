@@ -63,6 +63,6 @@ U:\Assignment\AssignmentTransaction\AssignmentTransaction\obj\Debug\AssignmentTr
 \\tradition.int\UserDocs\Xavier.Guerbet\My Documents\AssignmentTransaction\AssignmentTransaction\bin\DotNetOpenAuth.AspNet.xml
 \\tradition.int\UserDocs\Xavier.Guerbet\My Documents\AssignmentTransaction\AssignmentTransaction\bin\Microsoft.AspNet.Membership.OpenAuth.xml
 \\tradition.int\UserDocs\Xavier.Guerbet\My Documents\AssignmentTransaction\AssignmentTransaction\bin\Microsoft.AspNet.FriendlyUrls.xml
-\\tradition.int\UserDocs\Xavier.Guerbet\My Documents\AssignmentTransaction\AssignmentTransaction\obj\Debug\AssignmentTransaction.csprojResolveAssemblyReference.cache
 \\tradition.int\UserDocs\Xavier.Guerbet\My Documents\AssignmentTransaction\AssignmentTransaction\obj\Debug\AssignmentTransaction.dll
 \\tradition.int\UserDocs\Xavier.Guerbet\My Documents\AssignmentTransaction\AssignmentTransaction\obj\Debug\AssignmentTransaction.pdb
+\\tradition.int\UserDocs\Xavier.Guerbet\My Documents\AssignmentTransaction\AssignmentTransaction\bin\NDepend.Path.dll

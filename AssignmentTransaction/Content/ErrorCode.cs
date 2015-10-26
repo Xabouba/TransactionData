@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace AssignmentTransaction.Content.Entity
+namespace AssignmentTransaction.Content
 {
     abstract class ErrorCode
     {

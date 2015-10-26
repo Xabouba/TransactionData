@@ -24,11 +24,11 @@
             loadonce: true,
             colNames: ['Transaction ID', 'Account', 'Description', 'Currency Code', 'Amount'],
             colModel: [
-                            { name: 'Id', index: 'Employee ID', width: 100 },
-                            { name: 'Account', index: 'Name', width: 250 },
-                            { name: 'Description', index: 'Designation', width: 250 },
-                            { name: 'CurrencyCode', index: 'City', width: 250 },
-                            { name: 'Amount', index: 'State', width: 150 }
+                            { name: 'Id', index: 'Transaction ID', width: 100 },
+                            { name: 'Account', index: 'Account', width: 250 },
+                            { name: 'Description', index: 'Description', width: 250 },
+                            { name: 'CurrencyCode', index: 'Currency Code', width: 250 },
+                            { name: 'Amount', index: 'Amount', width: 150 }
             ],
             pager: '#pagingGrid',
             rowNum: 50,

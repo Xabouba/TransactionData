@@ -1,5 +1,4 @@
-﻿using AssignmentTransaction.Content.Entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -11,6 +10,11 @@ namespace AssignmentTransaction.Content
 {
     abstract class DataAccess
     {
+        /// <summary>
+        /// Initialize a datatable containing transaction data
+        /// Used with bulk insert into the DB
+        /// </summary>
+        /// <returns></returns>
         public static DataTable InitDataTable()
         {
             DataTable dataTable = new DataTable();
@@ -23,25 +27,41 @@ namespace AssignmentTransaction.Content
             return dataTable;
         }
 
-        // Insert a datatable to the transaction table
+        /// <summary>
+        /// Insert a datatable to the transaction table
+        /// 
+        /// </summary>
+        /// <param name="csvFileData"></param>
         public static void InsertDataIntoSQLServerUsingSQLBulkCopy(DataTable csvFileData)
         {
-            SqlConnection dbConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["connectionStringName"].ConnectionString);
+            // Connect to DB and open connection
+            SqlConnection dbConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             dbConnection.Open();
+
+            // Nulk copy the correct data to DB
             using (SqlBulkCopy s = new SqlBulkCopy(dbConnection))
             {
+                // Use table named Transactions
                 s.DestinationTableName = "Transactions";
                 foreach (var column in csvFileData.Columns)
                     s.ColumnMappings.Add(column.ToString(), column.ToString());
+                // Write to DB
                 s.WriteToServer(csvFileData);
             }
             dbConnection.Close();
         }
-        // 
+
+        /// <summary>
+        /// Return list of dictionnary containing all transaction data
+        /// </summary>
+        /// <returns>list of dictionarry containing all transaction data from DB</returns>
         public static List<Dictionary<string, object>> GetListTransactionData()
         {
             DataTable dt = new DataTable();
-            SqlConnection dbConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["connectionStringName"].ConnectionString);
+            // Connect to DB and open connection
+            SqlConnection dbConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+
+            // SQL query to return all data from Transactions table
             using (SqlCommand cmd = new SqlCommand("SELECT Id,Account,Description,CurrencyCode,Amount FROM Transactions"))
             {
                 dbConnection.Open();
@@ -62,28 +82,6 @@ namespace AssignmentTransaction.Content
                 }
                 return rows;
             }
-        }
-
-        public static string GetListTransactionDataHTML()
-        {
-            string htmlStr = "";
-            SqlConnection dbConnection = new SqlConnection("Data Source=WKS-W7-LDN-0392;Initial Catalog=TransactionDB;Integrated Security=SSPI;");
-            using (SqlCommand cmd = new SqlCommand("SELECT Id,Account,Description,CurrencyCode,Amount FROM Transactions"))
-            {
-                dbConnection.Open();
-                cmd.Connection = dbConnection;
-
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    htmlStr += "<tr><td>" + reader.GetInt32(0) + "</td><td>" + reader.GetString(1)
-                        + "</td><td>" + reader.GetString(2) + "</td><td>" + reader.GetString(3)
-                        + "</td><td>" + (double)reader.GetDecimal(4) + "</td></tr>";
-                }
-                dbConnection.Close();
-            }
-            return htmlStr;
         }
     }
 }

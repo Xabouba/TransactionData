@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace AssignmentTransaction.Content.Entity
+namespace AssignmentTransaction.Content
 {
-    public class Transaction
+    public sealed class Transaction
     {
         public int Transaction_ID { get; set; }
         public string Transaction_Account { get; set; }

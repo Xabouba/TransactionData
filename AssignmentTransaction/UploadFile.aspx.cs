@@ -1,5 +1,4 @@
 ﻿using AssignmentTransaction.Content;
-using AssignmentTransaction.Content.Entity;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -20,6 +19,11 @@ namespace AssignmentTransaction
 
         }
 
+        /// <summary>
+        /// Upload a CSV file to TransactionDB
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void UploadCsvDataToDatabase(object sender, EventArgs e)
         {
             try
@@ -28,36 +32,44 @@ namespace AssignmentTransaction
             }
             catch (Exception ex)
             {
-                HandleMsg(divMessage,"error", "Error! " + ex.Message);
+                MessageHandler.HandleMsg(divMessage, "error", "Error! " + ex.Message);
 
             }
         }
 
-
+        /// <summary>
+        /// Upload by checking and then importing data to the DB
+        /// </summary>
         private void UploadCsvFile()
         {
             string errors = "";
             int i = 0, j = 0;
             FileUpload inputFile = flucsv;
+
+            // Check if file exists
             if (inputFile.HasFile)
             {
                 string contentType = inputFile.PostedFile.ContentType.ToLower();
                 var Extension = inputFile.FileName.Substring(inputFile.FileName.IndexOf('.') + 1).ToLower();
+                // Check if file is CSV
                 if (Extension == "csv")
                 {
+                    // Create a datatable to bulk insert into the DB
                     DataTable csvData = DataAccess.InitDataTable();
 
+                    // First read the file to check format
                     using (StreamReader reader = new StreamReader(File.OpenRead(Server.MapPath("~/CSV/" + Path.GetFileName(inputFile.FileName)))))
                     {
-                        
+                        // For each line of the file
                         while (!reader.EndOfStream)
                         {
                             i++;
                             var line = reader.ReadLine();
                             var values = line.Split(',');
 
-
+                            // Test the correctness of the whole line and returns a code error
                             int test = ErrorCode.TestCSVLine(values.ToArray());
+                            // If no error, create new row to insert
                             if (test == 0)
                             {
                                 DataRow dataRow = csvData.NewRow();
@@ -68,34 +80,33 @@ namespace AssignmentTransaction
                                 dataRow["Amount"] = values[3].Trim();
                                 csvData.Rows.Add(dataRow);
                             }
+                            // Else display issue on website
                             else
                             {
                                 j++;
                                 errors += "Error on row " + i + ": " + ErrorCode.TestIntDetails(test) + "! <br/>";
                             }
                         }
+                        // Insert the current datatable to DB
                         DataAccess.InsertDataIntoSQLServerUsingSQLBulkCopy(csvData);
                     }
 
                     if (i > 0){
-                        HandleMsg(divSuccess, "message-success", "Results: " + (i - j) + "/" + i +" rows correctly imported!");
+                        MessageHandler.HandleMsg(divSuccess, "message-success", "Results: " + (i - j) + "/" + i + " rows correctly imported!");
                     }
                     if (j > 0)
                     {
-                        HandleMsg(divMessage,"message-error", errors);
+                        MessageHandler.HandleMsg(divMessage, "message-error", errors);
                     }
                 }
                 else
                 {
-                    HandleMsg(divMessage,"error", "Please select a valid CSV file!!");
+                    MessageHandler.HandleMsg(divMessage, "error", "Please select a valid CSV file!!");
                 }
             }
         }
-        private void HandleMsg(HtmlGenericControl control, string _class, string _msg)
-        {
-            control.Style.Value = "display:block;";
-            control.Attributes.Add("class", _class);
-            control.InnerHtml = _msg;
-        }
+
+
+
     }
 }
