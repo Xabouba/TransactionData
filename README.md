@@ -2,11 +2,11 @@
 
 This repository contains a whole Visual Studio ASP.NET Web Application and a SQL query file to create a new Database.
 
-INSTRUCTIONS
+Instructions
 =====================
 
 
-SETUP INSTRUCTIONS
+Setup Instructions
 ----------------------
 
 - Download zip repository and unzip folder.
@@ -25,7 +25,7 @@ SETUP INSTRUCTIONS
 
 
 
-APPLICATION TEST INSTRUCTIONS
+Application Test Instructions
 -----------------------------------
 
 The application contains 3 pages:
