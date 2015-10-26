@@ -32,12 +32,17 @@ The application contains 3 pages:
 - Home page with links to the 2 other pages
 
 - Transactions: Displaying all transaction data stored in DB using a Javascript plugin to display an infinite numbers of rows in DB.
+
 The data is displayed in a table containing: Transaction ID, Account, Description, Currency Code & Amount
 
 - Upload file: Enable user to upload CSV file
+
 To test it, copy/paste CSV file into the CSV folder and select the file when asked.
-The CSV file needs to be in the following format: Account | Description | Currency Code | Amount
-Each column of each row is checked before uploaded to the table in the DB
+
+The CSV file needs to be in the following format: Account | Description | Currency Code | Amount.
+
+Each column of each row is checked before uploaded to the table in the DB.
+
 Each row containing at least one error is not uploaded and an error code is displayed on the current page.
 
 Several CSV files are included:
