@@ -1,10 +1,10 @@
-﻿using AssignmentTransaction.Content;
+﻿using AssignmentTransaction.App_Code.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace AssignmentTransaction.Content
+namespace AssignmentTransaction.App_Code
 {
     public sealed class Iso4217Lookup
     {

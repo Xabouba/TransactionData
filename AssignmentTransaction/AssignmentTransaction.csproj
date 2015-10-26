@@ -223,11 +223,11 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />
-    <Compile Include="Content\DataAccess.cs" />
-    <Compile Include="Content\ErrorCode.cs" />
-    <Compile Include="Content\Iso4217Definition.cs" />
-    <Compile Include="Content\MessageHandler.cs" />
-    <Compile Include="Content\Transaction.cs" />
+    <Compile Include="App_Code\DataAccess.cs" />
+    <Compile Include="App_Code\ErrorCode.cs" />
+    <Compile Include="App_Code\Entity\Iso4217Definition.cs" />
+    <Compile Include="App_Code\MessageHandler.cs" />
+    <Compile Include="App_Code\Entity\Transaction.cs" />
     <Compile Include="DisplayTransactions.aspx.cs">
       <DependentUpon>DisplayTransactions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -236,7 +236,7 @@
       <DependentUpon>DisplayTransactions.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Content\Iso4217LookUp.cs" />
+    <Compile Include="App_Code\Iso4217LookUp.cs" />
     <Compile Include="UploadFile.aspx.cs">
       <DependentUpon>UploadFile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

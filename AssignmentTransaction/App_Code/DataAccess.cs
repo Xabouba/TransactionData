@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Configuration;
 
-namespace AssignmentTransaction.Content
+namespace AssignmentTransaction.App_Code
 {
     abstract class DataAccess
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI.HtmlControls;
 
-namespace AssignmentTransaction.Content
+namespace AssignmentTransaction.App_Code
 {
     abstract class MessageHandler
     {
