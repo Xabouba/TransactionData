@@ -4,7 +4,7 @@
     <section class="featured">
         <div class="content-wrapper">
             <hgroup class="title">
-                <h1><%: Title %>.</h1>
+                <h1>Home page</h1>
             </hgroup>
             <p>
                 This web application has been designed to process the account transaction data to calculate tax figures for a client tax return.

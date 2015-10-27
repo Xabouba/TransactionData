@@ -8,7 +8,7 @@ using System.Configuration;
 
 namespace AssignmentTransaction.App_Code
 {
-    abstract class DataAccess
+    abstract static class DataAccess
     {
         /// <summary>
         /// Initialize a datatable containing transaction data

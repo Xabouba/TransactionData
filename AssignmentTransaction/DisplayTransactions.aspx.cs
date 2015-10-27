@@ -12,7 +12,7 @@ namespace AssignmentTransaction
 {
     public partial class DisplayTransactions : Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        protected static void Page_Load(object sender, EventArgs e)
         {
 
         }

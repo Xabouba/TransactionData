@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AssignmentTransaction.App_Code
 {
-    abstract class ErrorCode
+    abstract static class ErrorCode
     {
         public static int TestCSVLine(string[] values)
         {

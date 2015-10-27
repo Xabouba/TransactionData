@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AssignmentTransaction.App_Code.Entity
 {
-    public sealed class Transaction
+    public static sealed class Transaction
     {
         public int Transaction_ID { get; set; }
         public string Transaction_Account { get; set; }

@@ -6,7 +6,7 @@ using System.Web;
 
 namespace AssignmentTransaction.App_Code
 {
-    public sealed class Iso4217Lookup
+    public static sealed class Iso4217Lookup
     {
         private static readonly List<Iso4217Definition> DefinitionCollection = new List<Iso4217Definition> {
         new Iso4217Definition("AED", 784, 2),

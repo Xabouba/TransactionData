@@ -6,7 +6,7 @@ using System.Web.UI.HtmlControls;
 
 namespace AssignmentTransaction.App_Code
 {
-    abstract class MessageHandler
+    abstract static class MessageHandler
     {
         public static void HandleMsg(HtmlGenericControl control, string _class, string _msg)
         {
